@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+:root {
+    --color-dark-white: rgb(245,245,245);
+    --color-white: #fff;
+    --color-darkblue: #33405E;
+    --color-pink: #ed3f78;
+
+    --shadow-style: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+
+body {
+    margin: 0;
+    width: 100wv;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(https://assets-global.website-files.com/5e1c4fb5db4d5243c0021d34/629f5cf21f7d38e8f9856da8_Homepage-BG-Desktop.svg);
+}
+
+button:active {
+  scale: 0.98;;
+}
+
+button:hover {
+  cursor: pointer;
+}

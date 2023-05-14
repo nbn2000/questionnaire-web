@@ -1,0 +1,71 @@
+/* ListUser styles */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto 0;
+    background-color: var(--color-white);
+}
+  
+td, th {
+    padding: 20px 10px 20px 10px;
+    text-align: center;
+    border: 3px solid var(--color-darkblue);
+}
+
+th {
+    background-color: var(--color-darkblue);
+    color: var(--color-white);
+    font-size: 25px;
+}
+
+.list-user-container {
+    width: 70%;
+    margin: 40px auto 40px;
+    color: var(--color-darkblue);
+}
+
+.h1-div {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto 5px;
+}
+
+@media (max-width: 665px) {
+    .list-user-container {
+        scale: 0.90;
+        margin: 10px 5px 0 10px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .list-user-container {
+        scale: 0.80;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 515px) {
+    .list-user-container {
+        scale: 0.70;
+        margin: -5px -5px 0 0 !important;
+    }
+
+    .h1-div {
+        margin: 0 auto 0 !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .list-user-container {
+        scale: 0.60;
+        margin: 0 !important;
+    }
+
+    .h1-div {
+        margin: 0 auto 0 !important;
+    }
+}
