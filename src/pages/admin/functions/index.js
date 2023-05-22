@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-
 export const Ozbek = () => {
+  const [uzbekObject, setUzbekObject] = useState([]) // all submited data goes here then we can send to the server
   const [containers, setContainers] = useState([{
     id: 1,
     inputs: [''],
     textarea: ''
-  }]);
+  }]);  
 
   const handleAddInput = (containerId) => {
     setContainers(containers.map(container => {
@@ -79,14 +79,15 @@ export const Ozbek = () => {
         variants: container.inputs.filter(input => input !== '') 
       }
     });
+    setUzbekObject([...objectUz]);
     setContainers([{
       id: 1,
       inputs: [''],
       textarea: ''
     }])
     alert('Ozbek tili savollar saqlandi!')
-    console.log(objectUz);
   }
+
 
   return (
     <div className="quiz-container">
@@ -118,12 +119,16 @@ export const Ozbek = () => {
   );
 }
 
+
+
 export const Rus = () => {
+  const [rusObject, setRusObject] = useState([]) // all submited data goes here then we can send to the server
+
     const [containers, setContainers] = useState([{
       id: 1,
       inputs: [''],
       textarea: ''
-    }]);
+    }]);  
   
     const handleAddInput = (containerId) => {
       setContainers(containers.map(container => {
@@ -197,13 +202,13 @@ export const Rus = () => {
         }
         
       });
+      setRusObject([...objectRu]);
       setContainers([{
         id: 1,
         inputs: [''],
         textarea: ''
       }])
       alert('Русский язычный вопросы сохранено!')
-      console.log(objectRu); 
     }
   
     return (

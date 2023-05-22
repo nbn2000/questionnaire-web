@@ -62,7 +62,7 @@
     font-weight: 600;
 }
 
-.link:nth-child(3), .link:nth-child(2) {
+.link:nth-child(1) {
     margin-left: 20px;
 }
 

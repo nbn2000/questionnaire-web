@@ -1,22 +1,38 @@
 import "./styles.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { uzbekObj, rusObj } from "../../languageObj";
+import { useHistory } from "react-router-dom";
 
 function Register() {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [users, setUsers] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [admin] = useState('admin12345');
+  const lang = localStorage.getItem('lang')
+  const [langState] = useState(lang)
+  const history = useHistory()
+
   const regex = /^\+[0-9]+$/;
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!phoneNumber && !regex.test(phoneNumber)) {
-        setErrorMessage("Iltimos to'g'ri telefon raqam kiriting");
+    if(phoneNumber === admin){
+      localStorage.setItem('admin', true)
+      history.push('/admin')
+      window.location.reload();
+    }else if (!phoneNumber || !regex.test(phoneNumber) || phoneNumber.length < 9 || phoneNumber.length > 16) {
+      if(langState){  
+      setErrorMessage(rusObj.regAlart);
+      }else{
+        setErrorMessage(uzbekObj.regAlart)
+      }
+        setPhoneNumber('')
     }else {
-        setErrorMessage('')
-        const newUsers = [...users, { user: phoneNumber }];
-        setUsers(newUsers);
+        localStorage.clear()
+        localStorage.setItem("users", phoneNumber);
         setPhoneNumber("");
-        console.log(newUsers);
-    } 
+        history.push('/')
+        window.location.reload();
+    }
   };
   
 
@@ -24,17 +40,27 @@ function Register() {
     setPhoneNumber(event.target.value);
   };
 
+  useEffect(() => {
+    const errorTimer = setInterval(() => {
+      setErrorMessage("");
+    }, 2000);
+
+    return () => {
+      clearInterval(errorTimer);
+    };
+  }, []);
+
   return (
     <div className="register-body">
     <div className="container-register">
         <header className="header-reg">
-            <h1 className="text-center h1"> Iltimos telephone raqam kiriting</h1>
-            <p className="description text-center">Rahmat sizga vaqtingizni ishlatganiz uchun</p>
+            <h1 className="text-center h1">{langState ? rusObj.enterPhone : uzbekObj.enterPhone}</h1>
+            <p className="description text-center">{langState ? rusObj.p : uzbekObj.p}</p>
         </header>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group">
-        <label>
-          telefon raqam:
+        <label className="label">
+          {langState ? rusObj.phonenumber : uzbekObj.phonenumber}
           <input className="input-reg"
             type="tel"
             value={phoneNumber} placeholder="+99812322...."
@@ -44,7 +70,7 @@ function Register() {
         </div>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         <button className="submit-button" type="submit">
-          Ro'yxatdan o'tish
+          {langState ? rusObj.submitReg : uzbekObj.submitReg}
         </button>
       </form>
     </div>
@@ -53,4 +79,3 @@ function Register() {
 }
 
 export default Register;
-
