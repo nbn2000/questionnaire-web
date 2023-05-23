@@ -5,6 +5,7 @@ import UserInfo from "./pages/userInfo";
 import Quiz from "./pages/quiz";
 import ListUser from './pages/listuser';
 import Admin from './pages/admin';
+import ThankYou from './pages/thankyoupage';
 
 function App() {
   const admin = localStorage.getItem('admin');
@@ -18,6 +19,7 @@ function App() {
           {user ? (
             <>
               <Route exact path='/' component={Quiz} />
+              <Route exact path='/thank-you' component={ThankYou}/>
               <Redirect exact from='/register' to='/' />
               <Route exact path='/register' component={Register} />
             </>

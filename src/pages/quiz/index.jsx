@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { transferedObjUzbek, transferedObjRus } from "../../objects";
+import { Link } from "react-router-dom";
 import { uzbekObj, rusObj } from "../../languageObj";
 import "./styles.css";
 
@@ -117,9 +118,11 @@ const Quiz = () => {
           <option value="Madina" key="3">Madina</option>
         </select>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
+        <Link to='/thank-you'>
         <button type="submit" className="submit-button">
           {langState ? rusObj.submit : uzbekObj.submit}
         </button>
+        </Link>
       </form>
     </div>
   );
