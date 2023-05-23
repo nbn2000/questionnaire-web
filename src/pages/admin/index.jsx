@@ -1,6 +1,6 @@
 import "./styles.css";
 import  {Ozbek, Rus}  from "./functions";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import { uzbekObj, rusObj } from "../../languageObj";
 
@@ -10,11 +10,16 @@ import { uzbekObj, rusObj } from "../../languageObj";
 // algorithm to check if both components' inputs are the same
 
 const Admin = () => {
+  const history = useHistory();
   const lang = localStorage.getItem('lang')
   const [langState] = useState(lang)
+ 
+  const handleLinkClick = () => {
+    history.push('/register');
+  };
   return (
     <>
-    <Link className="link-back" to='/register'>← {langState ? rusObj.register : uzbekObj.register}</Link>
+    <button className="link-back" onClick={handleLinkClick}>← {langState ? rusObj.register : uzbekObj.register}</button>
       <Ozbek />
       <Rus/>
     </>

@@ -16,6 +16,7 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(phoneNumber === admin){
+      localStorage.clear()
       localStorage.setItem('admin', true)
       history.push('/admin')
       window.location.reload();
