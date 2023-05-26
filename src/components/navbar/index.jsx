@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useLocation, Link } from "react-router-dom/cjs/react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 import { uzbekObj, rusObj } from "../../languageObj";
 import { useState } from "react";
 
@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="link-div">
           <Link to='/admin'><button className="link">{langState ? rusObj.custom : uzbekObj.custom}</button></Link>
           <Link to='/list-user'><button className="link">{langState ? rusObj.listUser : uzbekObj.listUser}</button></Link>
-        </div> : <></>
+        </div> : null
       }
       {location.pathname.startsWith('/user-info/') || location.pathname === '/list-user' ? <></> :
       <div className="navbar-logo-ul">

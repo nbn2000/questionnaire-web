@@ -1,6 +1,6 @@
 import "./styles.css";
 import  {Ozbek, Rus}  from "./functions";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { uzbekObj, rusObj } from "../../languageObj";
 
@@ -10,12 +10,11 @@ import { uzbekObj, rusObj } from "../../languageObj";
 // algorithm to check if both components' inputs are the same
 
 const Admin = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const lang = localStorage.getItem('lang')
   const [langState] = useState(lang)
- 
   const handleLinkClick = () => {
-    history.push('/register');
+    navigate('/register');
   };
   return (
     <>

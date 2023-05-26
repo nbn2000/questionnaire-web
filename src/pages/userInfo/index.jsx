@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useLocation, Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useLocation  } from "react-router-dom";
 import { useState } from "react";
 import { uzbekObj, rusObj } from "../../languageObj";
 import { fetchedData } from "../../objects";

@@ -1,7 +1,7 @@
 import "./styles.css";
 import React, { useState, useEffect } from "react";
 import { uzbekObj, rusObj } from "../../languageObj";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -9,7 +9,7 @@ function Register() {
   const [admin] = useState('admin12345');
   const lang = localStorage.getItem('lang')
   const [langState] = useState(lang)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const regex = /^\+[0-9]+$/;
 
@@ -17,8 +17,8 @@ function Register() {
     event.preventDefault();
     if(phoneNumber === admin){
       localStorage.clear()
-      localStorage.setItem('admin', true)
-      history.push('/admin')
+      localStorage.setItem('admin', 'true')
+      navigate('/admin')
       window.location.reload();
     }else if (!phoneNumber || !regex.test(phoneNumber) || phoneNumber.length < 9 || phoneNumber.length > 16) {
       if(langState){  
@@ -31,7 +31,7 @@ function Register() {
         localStorage.clear()
         localStorage.setItem("users", phoneNumber);
         setPhoneNumber("");
-        history.push('/')
+        navigate('/')
         window.location.reload();
     }
   };

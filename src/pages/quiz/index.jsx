@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { transferedObjUzbek, transferedObjRus } from "../../objects";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { uzbekObj, rusObj } from "../../languageObj";
 import "./styles.css";
 
@@ -13,13 +13,12 @@ const Quiz = () => {
   const lang = localStorage.getItem('lang')
   const [langState] = useState(lang)
   const transferedObj = langState ? transferedObjRus : transferedObjUzbek
+  const navigate = useNavigate()
 
   useEffect(() => {
     const storedUsers = localStorage.getItem('users');
     const initialDataUser = storedUsers ? { [storedUsers]: [answObj] } : {};
     setDataUser(initialDataUser);
-    console.log(dataUser)
-     // eslint-disable-next-line
   }, [answObj]); 
 
   const handleOperatorChange = (event) => {
@@ -72,8 +71,8 @@ const Quiz = () => {
     });
 
     answerObject.push({ Operator: selectedOperator });
-    setAnswObj([...answerObject])
-    localStorage.setItem('users', '+9982323')
+    setAnswObj([...answerObject])    
+    navigate('/thank-you')
   };
 
   useEffect(() => {
@@ -119,11 +118,9 @@ const Quiz = () => {
           <option value="Madina" key="3">Madina</option>
         </select>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
-        <Link to='/thank-you'>
         <button type="submit" className="submit-button">
           {langState ? rusObj.submit : uzbekObj.submit}
         </button>
-        </Link>
       </form>
     </div>
   );

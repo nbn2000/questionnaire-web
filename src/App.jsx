@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Register from "./pages/register";
 import Navbar from "./components/navbar";
 import UserInfo from "./pages/userInfo";
@@ -8,35 +8,35 @@ import Admin from './pages/admin';
 import ThankYou from './pages/thankyoupage';
 
 function App() {
-  const admin = localStorage.getItem('admin');
+  const admin = localStorage.getItem('admin') === 'true';
   const user = localStorage.getItem('users');
 
   return (
     <Router>
       <div className='App'>
         <Navbar />
-        <Switch>
-        <Route exact path='/register' component={Register} />
-        {user ? (
+        <Routes>
+          <Route path='/register' element={<Register />} />
+          {admin ? (
             <>
-              <Route exact path='/' component={Quiz} />
-              <Route exact path='/thank-you' component={ThankYou} />
+              <Route path='/user-info/:user' element={<UserInfo />} />
+              <Route path='/list-user' element={<ListUser />} />
+              <Route path='/admin' element={<Admin />} />
             </>
-          ) : admin ? (
+          ) : user ? (
             <>
-              <Route exact path='/user-info/:user' component={UserInfo} />
-              <Route exact path='/list-user' component={ListUser} />
-              <Route exact path='/admin' component={Admin} />
+              <Route path='/' element={<Quiz />} />
+              <Route path='/thank-you' element={<ThankYou />} />
             </>
           ) : (
             <>
-              <Redirect exact from='/' to='/register' />
-              <Redirect exact from='/admin' to='/register' />
-              <Redirect exact from='/user-info/:user' to='/register' />
-              <Redirect exact from='/list-user' to='/register' />
+              <Route path='/admin' element={<Navigate to='/register' />} />
+              <Route path='/user-info/:user' element={<Navigate to='/register' />} />
+              <Route path='/list-user' element={<Navigate to='/register' />} />
+              <Route path='/' element={<Navigate to='/register' />} />
             </>
           )}
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
