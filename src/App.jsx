@@ -17,27 +17,25 @@ function App() {
         <Navbar />
         <Switch>
         <Route exact path='/register' component={Register} />
-          {user ? (
+        {user ? (
             <>
               <Route exact path='/' component={Quiz} />
-              <Route exact path='/thank-you' component={ThankYou}/>
-              <Redirect exact from='/register' to='/' />
+              <Route exact path='/thank-you' component={ThankYou} />
             </>
-          ) : (
-            <Redirect exact from='/' to='/register' />
-          )}
-          {admin ? (
+          ) : admin ? (
             <>
               <Route exact path='/user-info/:user' component={UserInfo} />
               <Route exact path='/list-user' component={ListUser} />
               <Route exact path='/admin' component={Admin} />
-              <Redirect exact from='/user-info/:user' to='/user-info/:user' />
-              <Redirect exact from='/list-user' to='/list-user' />
-              <Redirect exact from='/admin' to='/admin' />
             </>
-          ) : (<><Redirect exact from='/admin' to='/register' />
-          <Redirect exact from='/user-info/:user' to='/register' />
-          <Redirect exact from='/list-user' to='/register' /></>)}
+          ) : (
+            <>
+              <Redirect exact from='/' to='/register' />
+              <Redirect exact from='/admin' to='/register' />
+              <Redirect exact from='/user-info/:user' to='/register' />
+              <Redirect exact from='/list-user' to='/register' />
+            </>
+          )}
         </Switch>
       </div>
     </Router>
