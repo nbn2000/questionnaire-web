@@ -1,16 +1,16 @@
 export const uzbekObj = {
     custom: 'Savollar Kiritish',
-    listUser: "Javoblar ro\'yhati",
+    listUser: `Javoblar ro'yhati`,
     register: 'registratsiya',
     back: 'orqaga',
     h1: 'Har bir savol uchun eng yaxshi javobni tanlang',
     operator: 'operatorni tanlang',
-    submit: 'Jo\'natish',
+    submit: `Jo'natish`,
     enterPhone: 'Iltimos, telefon raqam kiriting',
-    p: 'Savollar sahifasiga o\'tish uchun',
+    p: `Savollar sahifasiga o'tish uchun`,
     phonenumber: 'telefon raqam:',
-    submitReg: 'Ro\'yxatdan o\'tish',
-    regAlart: 'Iltimos, to\'g\'ri telefon raqam kiriting',
+    submitReg: `Ro'yxatdan o'tish`,
+    regAlart: `Iltimos, to'g'ri telefon raqam kiriting`,
     quizAlartQuest: 'Iltimos, savolar variantini tanlang',
     quizAlartOper: 'Iltimos, operatorni tanlang'
 }

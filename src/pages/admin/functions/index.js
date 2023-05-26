@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const Ozbek = () => {
-  const [uzbekObject, setUzbekObject] = useState([]) // all submited data goes here then we can send to the server
+ /* uzbekObject needs to add to -> */ const [setUzbekObject] = useState([]) // all submited data goes here then we can send to the server
   const [containers, setContainers] = useState([{
     id: 1,
     inputs: [''],
@@ -122,7 +122,7 @@ export const Ozbek = () => {
 
 
 export const Rus = () => {
-  const [rusObject, setRusObject] = useState([]) // all submited data goes here then we can send to the server
+ /* rusObject needs to add when needed -> */ const [setRusObject] = useState([]) // all submited data goes here then we can send to the server
 
     const [containers, setContainers] = useState([{
       id: 1,

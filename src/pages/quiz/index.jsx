@@ -19,7 +19,7 @@ const Quiz = () => {
     const initialDataUser = storedUsers ? { [storedUsers]: [answObj] } : {};
     setDataUser(initialDataUser);
     console.log(dataUser)
-  }, [answObj]);
+  }, [answObj, dataUser]);
 
   const handleOperatorChange = (event) => {
     setSelectedOperator(event.target.value);
