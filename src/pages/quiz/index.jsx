@@ -19,7 +19,8 @@ const Quiz = () => {
     const initialDataUser = storedUsers ? { [storedUsers]: [answObj] } : {};
     setDataUser(initialDataUser);
     console.log(dataUser)
-  }, [answObj, dataUser]);
+     // eslint-disable-next-line
+  }, [answObj]); 
 
   const handleOperatorChange = (event) => {
     setSelectedOperator(event.target.value);
