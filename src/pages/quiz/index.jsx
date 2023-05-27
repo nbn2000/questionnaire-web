@@ -9,7 +9,7 @@ const Quiz = () => {
   const [selectedOperator, setSelectedOperator] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [answObj, setAnswObj] = useState([])
-  const [dataUser, setDataUser] = useState({}) // // all submited data goes here then we can send to the server
+  const [dataUser, setDataUser] = useState({})  // all submited data goes here then we can send to the server
   const lang = localStorage.getItem('lang')
   const [langState] = useState(lang)
   const transferedObj = langState ? transferedObjRus : transferedObjUzbek
