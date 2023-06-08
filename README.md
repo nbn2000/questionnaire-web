@@ -1,4 +1,4 @@
-# questionnaire-web
+# Questionnaire Web
 <p>
                 Introducing "Questionnaire Web" - a dynamic front-end project designed to facilitate quizzes or gather valuable feedback from customers. 
                 This user-friendly web application offers a seamless experience for both customers and administrators.
