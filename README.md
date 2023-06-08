@@ -45,6 +45,17 @@
                 <p>
                   Feel free to check out the Project by visiting the Project Link.
                 </p>
+                  <div>
+                <h2>Tools Used</h2>
+                <div>
+                  <div >HTML</div>
+                  <div >CSS</div>
+                  <div >JavaScript</div>
+                  <div >React</div>
+                  <div >GIT</div>
+                  <div >Github</div>
+                </div>
+              </div>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
